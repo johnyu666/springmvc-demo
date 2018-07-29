@@ -25,6 +25,11 @@ import org.springframework.web.servlet.DispatcherServlet;
 @Controller
 @SessionAttributes(value= {"beanName"})
 public class CommonController {
+	
+	
+	
+	
+	
 	private int field=10;
 	public CommonController() {
 		System.out.println("commonController constructing....");
