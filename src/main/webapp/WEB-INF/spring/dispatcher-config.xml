@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+         http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+	<mvc:annotation-driven></mvc:annotation-driven>
+	<context:component-scan base-package="controller"></context:component-scan>
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/work2"></mvc:mapping>
+			<bean class="interceptor.MyInterceptor"></bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
+
+	<!-- <mvc:annotation-driven conversion-service="conversionService"></mvc:annotation-driven> 
+		<bean id="dateConverter" class="converter.DateConverter"></bean> <bean id="dateFormatter" 
+		class="converter.DateFormatter"></bean> <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean"> 
+		<property name="formatters"> <set> <ref bean="dateFormatter"/> </set> </property> 
+		</bean> -->
+
+	<bean name="/users" class="springdemo01.UserController"></bean>
+
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/"></property>
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+
+	<!-- 配置使用 SimpleMappingExceptionResolver 来映射异常 -->
+	<bean
+		class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="exceptionAttribute" value="exception"></property>
+		<property name="exceptionMappings">
+			<props>
+				<prop key="java.lang.ArrayIndexOutOfBoundsException">error</prop>
+			</props>
+		</property>
+	</bean>
+
+</beans>
