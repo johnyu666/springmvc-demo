@@ -17,6 +17,11 @@ import org.springframework.web.servlet.ViewResolver;
 
 import org.springframework.web.servlet.view.InternalResourceView;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+/**
+ * 有关异常的处理
+ * @author john
+ *
+ */
 @Controller
 public class UserController{
 	@RequestMapping("users")

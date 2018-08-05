@@ -8,13 +8,22 @@
         http://www.springframework.org/schema/mvc/spring-mvc.xsd
          http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
-<context:annotation-config></context:annotation-config>
-<context:component-scan base-package="controller,advice"></context:component-scan>
+	<mvc:annotation-driven></mvc:annotation-driven>
+	<context:annotation-config></context:annotation-config>
+	<context:component-scan base-package="controller,advice"></context:component-scan>
 	<!-- <mvc:annotation-driven conversion-service="conversionService"></mvc:annotation-driven> 
-		<bean id="dateConverter" class="converter.DateConverter"></bean> <bean id="dateFormatter" 
-		class="converter.DateFormatter"></bean> <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean"> 
-		<property name="formatters"> <set> <ref bean="dateFormatter"/> </set> </property> 
-		</bean> -->
+		
+		<bean id="dateConverter" class="converter.DateConverter"></bean> 
+		
+		<bean id="dateFormatter" 
+		class="converter.DateFormatter"></bean> 
+		
+		<bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean"> 
+		<property name="formatters"> 
+			<set> <ref bean="dateFormatter"/></set> 
+		</property> 
+		</bean> 
+	-->
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/"></property>
@@ -22,17 +31,10 @@
 	</bean>
 
 	<!-- 配置使用 SimpleMappingExceptionResolver 来映射异常 -->
-	<!-- <bean
-		class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
-		异常对象存入model的key,此处为默认
-		<property name="exceptionAttribute" value="exception"></property>
-		<property name="exceptionMappings">
-			<props>
-				指定与相关异常出现的veiwName
-				<prop key="java.lang.ArrayIndexOutOfBoundsException">error</prop>
-				<prop key="java.lang.ArithmeticException">error</prop>
-			</props>
-		</property>
-	</bean> -->
+	<!-- <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver"> 
+		异常对象存入model的key,此处为默认 <property name="exceptionAttribute" value="exception"></property> 
+		<property name="exceptionMappings"> <props> 指定与相关异常出现的veiwName <prop key="java.lang.ArrayIndexOutOfBoundsException">error</prop> 
+		<prop key="java.lang.ArithmeticException">error</prop> </props> </property> 
+		</bean> -->
 
 </beans>

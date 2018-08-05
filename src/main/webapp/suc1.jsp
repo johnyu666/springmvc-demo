@@ -9,14 +9,13 @@
 <body>
 
 <h3>
-session attribue:
-	${sessionScope.user.uname }
+name:
+	${requestScope.user.uname },${requestScope.user.id }
+	phone: ${phone }
 </h3>
+<h3>session: ${sessionScope.user.uname}</h3>
 <h3>
-request attribue:
-	${requestScope.user.uname }
-</h3>
-age:${age }
+
 
 </body>
 </html>
